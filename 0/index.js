@@ -1,8 +1,12 @@
 var app = new Vue({
     el: '#app',
     data: {
-        seen: true
+        todos: [
+            { text: 'first' },
+            { text: 'second' },
+            { text: 'third' },
+        ]
     }   
 });
 
-app.seen = false
+app.todos.push({ text: 'fourth'})
