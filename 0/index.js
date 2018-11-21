@@ -1,12 +1,11 @@
 var app = new Vue({
     el: '#app',
     data: {
-        todos: [
-            { text: 'first' },
-            { text: 'second' },
-            { text: 'third' },
-        ]
+        message: 'Hello, PJHubs!'
+    },
+    methods: {
+        reverseMessage: function() {
+            this.message = this.message.split('').reverse().join('')
+        } 
     }   
 });
-
-app.todos.push({ text: 'fourth'})
