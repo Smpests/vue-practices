@@ -1,7 +1,15 @@
 Vue.component('pjhubs-item', {
-    template: '<li>PJHubs</li>'
+    props: ['pjhubs'],
+    template: '<li>{{ pjhubs.text }}</li>'
 })
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        pjhubsData: [
+            { id:0, text: 'pjhubs01' },
+            { id:1, text: 'pjhubs02' },
+            { id:2, text: 'pjhubs03' },
+        ]
+    }
 })

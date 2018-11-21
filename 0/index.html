@@ -6,7 +6,11 @@
     <body>
         <div id="app">
             <ol>
-                <pjhubs-item></pjhubs-item>
+                <pjhubs-item
+                    v-for="pjhubs in pjhubsData"
+                    v-bind:pjhubs="pjhubs"
+                    v-bind:key="pjhubs.id">
+                </pjhubs-item>
             </ol>
         </div>
 
