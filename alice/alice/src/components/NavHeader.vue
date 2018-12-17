@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     right: 0;
-    font-weight: bold;
+    font-weight: weight;
     height: 44px;
     line-height: 42px;
     padding: 0 1em;
@@ -26,8 +26,9 @@
   }
   ul li {
     flex: 1;
-    font-size: 16px;
+    font-size: 24px;
     text-align: center;
+    font-weight: weight;
     font-family: navHeaderIconFont;
     list-style-type:none;
     float:left;
@@ -37,22 +38,46 @@
   li:active {
     background-color:cadetblue
   }
+
+  .item-active {
+    background-color:cadetblue
+  }
 </style>
 
 <template>
   <div class="wrapper">
     <ul>
-      <li @click="changeItemStatus(0)">&#xeaf0;
-        <span v-show="checkStatus[0]" v-bind="checkStatus" @click="onSelected(event, 0)">海洋</span>
+      <li @click="changeItemStatus(0)">
+        <span>&#xeaf0;</span>
+        <span class="item-active"
+            v-show="checkStatus[0]"
+            v-bind="checkStatus"
+            @click="onSelected(event, 0)">
+        </span>
       </li>
-      <li @click="changeItemStatus(1)">&#xeaf8;
-        <span v-show="checkStatus[1]" v-bind="checkStatus" @click="onSelected(event, 1)">灵感</span>
+      <li @click="changeItemStatus(1)">
+        <span>&#xeaf8;</span>
+        <span class="item-active"
+            v-show="checkStatus[1]"
+            v-bind="checkStatus"
+            @click="onSelected(event, 1)">
+        </span>
       </li>
-      <li @click="changeItemStatus(2)">&#xeb43;
-        <span v-show="checkStatus[2]" v-bind="checkStatus" @click="onSelected(event, 2)">通知</span>
+      <li @click="changeItemStatus(2)">
+        <span>&#xeb43;</span>
+        <span class="item-active"
+            v-show="checkStatus[2]"
+            v-bind="checkStatus"
+            @click="onSelected(event, 2)">
+        </span>
       </li>
-      <li @click="changeItemStatus(3)">&#xeb24;
-        <span v-show="checkStatus[3]" v-bind="checkStatus" @click="onSelected(event, 3)">alice</span>
+      <li @click="changeItemStatus(3)">
+        <span>&#xeb24;</span>
+        <span class="item-active"
+            v-show="checkStatus[3]"
+            v-bind="checkStatus"
+            @click="onSelected(event, 3)">
+          </span>
       </li>
     </ul>
   </div>

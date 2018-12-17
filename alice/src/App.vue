@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <nav-header item-names="['笔记', '海洋', '书写', '通知', '我']"></nav-header>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
