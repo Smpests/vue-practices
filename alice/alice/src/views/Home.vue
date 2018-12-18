@@ -1,6 +1,7 @@
 <style scoped>
   .container {
-    background-color: rgb(240, 245, 246)
+    background-color: rgb(240, 245, 246);
+    height: 100%;
   }
 </style>
 
