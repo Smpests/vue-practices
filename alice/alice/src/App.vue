@@ -8,25 +8,14 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
-  text-align: center;
-  color: #2c3e50;
   background-color: rgb(240, 245, 246);
   position: absolute;
-}
-#nav {
-  /* padding: 30px; */
-  padding-top: 60px;
-  font-family: navHeaderIconFont;
-  font-size: 32px;
 }
 
 #nav a {
@@ -39,24 +28,11 @@ html, body {
   color: #42b983;
 }
 
-.nav-item {
-  float: left;
-  width: 50%;
-}
-
 </style>
 
 <template>
   <div id="app">
     <nav-header></nav-header>
-    <div id="nav">
-      <div class="nav-item">
-        <router-link to="/">&#xeaf9;</router-link>
-      </div>
-      <div class="nav-item">
-        <router-link to="/about">&#xeb22;</router-link>
-      </div>
-    </div>
     <router-view/>
   </div>
 </template>
