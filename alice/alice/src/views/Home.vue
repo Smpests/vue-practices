@@ -2,7 +2,7 @@
   .container {
     overflow-y: scroll;
     height: 100%;
-    width: 100%;
+    background-color: rgb(240, 245, 246);
   }
   .list {
     margin: 20px 20px 20px 20px;
@@ -10,10 +10,20 @@
 
   #nav {
     text-align: center;
-    padding-top: 60px;
+    padding-top: 50px;
     margin-bottom: 50px;
     font-family: navHeaderIconFont;
     font-size: 32px;
+  }
+
+  #nav a {
+    font-weight: weight;
+    color: #2c3e50;
+    text-decoration: none;
+  }
+
+  #nav a.router-link-exact-active {
+    color: #42b983;
   }
 
   .nav-item {
