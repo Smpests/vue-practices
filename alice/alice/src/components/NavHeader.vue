@@ -1,7 +1,7 @@
 <style scoped>
   @font-face {
     font-family: navHeaderIconFont;
-    src: url('//at.alicdn.com/t/font_952909_u3d3973k6re.ttf');
+    src: url('//at.alicdn.com/t/font_952909_fni4mkv42n.ttf')
   }
   .wrapper {
     background-color: #3A4953;
@@ -12,8 +12,7 @@
     left: 0;
     right: 0;
     font-weight: weight;
-    height: 44px;
-    line-height: 42px;
+    line-height: 60px;
     padding: 0 1em;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   }

@@ -1,20 +1,17 @@
 <style scoped>
-  html body {
-    margin: 0;
-  }
   .container {
     overflow-y: scroll;
     height: 100%;
+    margin-top: 60px;
     background-color: rgb(240, 245, 246);
   }
   .list {
-    margin: 20px 20px 20px 20px;
+    margin: 60px 20px 20px 20px;
   }
 
   #nav {
+    margin-top: 10px;
     text-align: center;
-    padding-top: 50px;
-    margin-bottom: 50px;
     font-family: navHeaderIconFont;
     font-size: 32px;
   }
