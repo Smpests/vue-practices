@@ -1,6 +1,6 @@
 <style scoped>
-</style>
 
+</style>
 <template>
   <div class="app">
     <nav-header></nav-header>
@@ -10,6 +10,7 @@
 
 <script>
 import navHeader from './components/NavHeader.vue'
+import 'normalize.css'
 
 export default {
   components: {

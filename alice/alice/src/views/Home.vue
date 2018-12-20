@@ -1,4 +1,7 @@
 <style scoped>
+  html body {
+    margin: 0;
+  }
   .container {
     overflow-y: scroll;
     height: 100%;
