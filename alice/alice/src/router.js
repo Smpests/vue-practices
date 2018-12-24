@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
+import Me from './views/Me.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       // component: function () {
       //   return import(/* webpackChunkName: "about" */ './views/About.vue')
       // }
+    },
+    {
+      path: '/me',
+      name: 'me',
+      component: Me
     }
   ]
 })

@@ -1,9 +1,7 @@
 <style scoped>
   .container {
     overflow-y: scroll;
-    height: 100%;
     margin-top: 60px;
-    background-color: rgb(240, 245, 246);
   }
   .list {
     margin: 55px 20px 20px 20px;

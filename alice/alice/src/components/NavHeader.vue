@@ -4,7 +4,8 @@
     src: url('//at.alicdn.com/t/font_952909_fni4mkv42n.ttf')
   }
   .wrapper {
-    background-color: #3A4953;
+    /* background-color: #3A4953; */
+    background-color: #fff;
     flex: 1;
     position: fixed;
     z-index: 1;
@@ -32,14 +33,17 @@
     list-style-type:none;
     float:left;
     display:block;
-    color:#fff;
+    /* color:#fff; */
   }
   li:active {
-    background-color:cadetblue
+    background-color:lightblue;
   }
-
   .item-active {
-    background-color:cadetblue
+    text-decoration: none;
+    color: gray;
+  }
+  .item-active:active {
+    background-color:rgba(0, 0, 0, 0.1);
   }
 </style>
 
@@ -47,36 +51,40 @@
   <div class="wrapper">
     <ul>
       <li @click="changeItemStatus(0)">
-        <span>&#xeaf0;</span>
+        <router-link class="item-active" to="/">&#xeaf0;</router-link>
+        <!-- <span>&#xeaf0;</span>
         <span class="item-active"
             v-show="checkStatus[0]"
             v-bind="checkStatus"
             @click="onSelected(event, 0)">
-        </span>
+        </span> -->
       </li>
       <li @click="changeItemStatus(1)">
-        <span>&#xeaf8;</span>
+        <router-link class="item-active" to="/me">&#xeaf8;</router-link>
+        <!-- <span>&#xeaf8;</span>
         <span class="item-active"
             v-show="checkStatus[1]"
             v-bind="checkStatus"
             @click="onSelected(event, 1)">
-        </span>
+        </span> -->
       </li>
       <li @click="changeItemStatus(2)">
-        <span>&#xeb43;</span>
+        <router-link class="item-active" to="/me">&#xeb43;</router-link>
+        <!-- <span>&#xeb43;</span>
         <span class="item-active"
             v-show="checkStatus[2]"
             v-bind="checkStatus"
             @click="onSelected(event, 2)">
-        </span>
+        </span> -->
       </li>
       <li @click="changeItemStatus(3)">
-        <span>&#xeb24;</span>
+        <router-link class="item-active" to="me">&#xeb24;</router-link>
+        <!-- <span>&#xeb24;</span>
         <span class="item-active"
             v-show="checkStatus[3]"
             v-bind="checkStatus"
             @click="onSelected(event, 3)">
-          </span>
+        </span> -->
       </li>
     </ul>
   </div>
