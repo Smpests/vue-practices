@@ -6,7 +6,7 @@
     background-color: rgb(240, 245, 246);
   }
   .list {
-    margin: 60px 20px 20px 20px;
+    margin: 55px 20px 20px 20px;
   }
 
   #nav {

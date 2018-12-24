@@ -1,6 +1,6 @@
 <style scoped>
   .about {
-    background-color: black;
+    
   }
 </style>
 
