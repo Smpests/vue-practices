@@ -33,6 +33,15 @@ input[type="text"]{
   color:#6a6f77;
   outline: 0;
 }
+input[type="password"],
+input[type="password"]{
+    margin-left: 0px;
+  height: 35px;
+  border-radius: 3px;
+  border:1px solid #cBcccf;
+  color:#6a6f77;
+  outline: 0;
+}
 input[type="submit"]{
   margin-top: 25px;
   height: 35px;
@@ -46,20 +55,14 @@ input[type="submit"]:hover{
   cursor: pointer;
 }
 .astyle{
-  margin: 5px 0 5px 70px;
+  margin: 5px 0 5px 0px;
   font-size: 18px;
   color: #6a6f77;
-}
-.bstyle{
-  display: block;
-  float: left;
-  margin-left: 70px;
-  font-size: 15px;
 }
 .cstyle{
   display: block;
   float: left;
-  margin-left: 70px;
+  margin-left: 0px;
   font-size: 15px;
 }
 .cstyle a{
@@ -71,15 +74,13 @@ input[type="submit"]:hover{
   <div class="container">
     <div class="input-container">
       <form action="#" method="get">
-        <p class="headline">用户登录</p>
+        <p class="headline">用户注册</p>
         <p class="astyle">用户名：</p>
         <input class="astyle" type="text" placeholder="请输入用户名">
         <p class="astyle">密码：</p>
         <input class="astyle" type="password" placeholder="请输入密码">
-        <input type="submit" value="登陆" name="login" >
-        <p class="bstyle"><input type="checkbox" name="rempas">  记住密码</p>
-        <p class="cstyle">忘记密码</p>
-        <p class="cstyle">没有账号？<router-link to="/register">立即注册</router-link></p>
+        <input type="submit" value="注册" name="register" >
+        <p class="cstyle">已有账号   <router-link to="/me">返回登陆</router-link></p>
       </form>
     </div>
   </div>

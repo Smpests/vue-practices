@@ -60,7 +60,7 @@
         </span> -->
       </li>
       <li @click="changeItemStatus(1)">
-        <router-link class="item-active" to="/me">&#xeaf8;</router-link>
+        <router-link class="item-active" to="/write">&#xeaf8;</router-link>
         <!-- <span>&#xeaf8;</span>
         <span class="item-active"
             v-show="checkStatus[1]"
@@ -69,7 +69,7 @@
         </span> -->
       </li>
       <li @click="changeItemStatus(2)">
-        <router-link class="item-active" to="/me">&#xeb43;</router-link>
+        <router-link class="item-active" to="/news">&#xeb43;</router-link>
         <!-- <span>&#xeb43;</span>
         <span class="item-active"
             v-show="checkStatus[2]"

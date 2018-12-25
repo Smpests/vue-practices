@@ -14,7 +14,7 @@
 <template>
   <div class="app">
     <nav-header></nav-header>
-    <router-view/>
+    <router-view/>    
   </div>
 </template>
 
@@ -25,6 +25,6 @@ import 'normalize.css'
 export default {
   components: {
     navHeader: navHeader
-  }
+  },
 }
 </script>

@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Me from './views/Me.vue'
+import News from './views/News.vue'
+import Write from './views/Write.vue'
+import Register from './views/Register.vue'
 
 Vue.use(Router)
 
@@ -28,6 +31,21 @@ export default new Router({
       path: '/me',
       name: 'me',
       component: Me
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: News
+    },
+    {
+      path: '/write',
+      name: 'write',
+      component: Write
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 })
