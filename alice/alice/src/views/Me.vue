@@ -1,85 +1,63 @@
 <style scoped>
   .container {
-    overflow-y: scroll;
+    //overflow-y: scroll;
     margin-top: 60px;
+    width: 320px;
+    height: 560px;
+    background-image: url('img/666406.jpg');
+    background-size: cover;
   }
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    /* width: 80%;
-    height: 60%; */
-  }
-  .headline{
-    font-size: 22px;
-    text-align: center;
-    padding: 20px;
-}
-input[type="text"],
-input[type="submit"]{
-  -webkit-appearance: none;
-  -webkit-animation: none;
-  display: block;
-  margin: 0 auto;
-  font-size: 15px;
-  width: 240px;
-}
-input[type="text"]{
-  height: 35px;
-  border-radius: 3px;
-  border:1px solid #cBcccf;
-  color:#6a6f77;
-  outline: 0;
-}
 input[type="submit"]{
   margin-top: 25px;
   height: 35px;
-  background: #357eb8;
-  color:#bcedff;
+  background: rgba(0, 191, 255, 0.6);
+  color: #eeffff;
   font-weight: bold;
   font-size: 16px;
 }
 input[type="submit"]:hover{
-  background:#0e62a3;
+  background: rgba(30, 144, 255, 0.6);
   cursor: pointer;
 }
-.astyle{
-  margin: 5px 0 5px 70px;
-  font-size: 18px;
-  color: #6a6f77;
+.container input[type="text"], .container input[type="password"] {
+  background: rgba(255, 255, 255, 0.5);
 }
-.bstyle{
-  display: block;
-  float: left;
-  margin-left: 70px;
-  font-size: 15px;
+h1 {
+  color: #FF6ECF;
+  font-size: 3em;
+  text-align: center;
 }
-.cstyle{
-  display: block;
-  float: left;
-  margin-left: 70px;
-  font-size: 15px;
+.block-edge {
+  height: 12px;
 }
-.cstyle a{
-  text-decoration: none;
+.head{
+  position: absolute;
+}
+.container .input-container {
+  margin-top: 30%;
 }
 </style>
 
 <template>
   <div class="container">
     <div class="input-container">
-      <form action="#" method="get">
-        <p class="headline">用户登录</p>
-        <p class="astyle">用户名：</p>
-        <input class="astyle" type="text" placeholder="请输入用户名">
-        <p class="astyle">密码：</p>
-        <input class="astyle" type="password" placeholder="请输入密码">
-        <input type="submit" value="登陆" name="login" >
-        <p class="bstyle"><input type="checkbox" name="rempas">  记住密码</p>
-        <p class="cstyle">忘记密码</p>
-        <p class="cstyle">没有账号？<router-link to="/register">立即注册</router-link></p>
+      <form action="#" method="get" class="form-group">
+        <h1>Alice</h1>
+        <div class="input-group">
+          <span class="input-group-addon">账 号</span>
+          <input class="form-control" type="text" autocomplete="off">
+        </div>
+        <div class="block-edge"></div>
+        <div class="input-group">
+          <span class="input-group-addon">密 码</span>
+          <input class="form-control" type="password" autocomplete="off">
+        </div>
+        <input type="submit" class="form-control" value="登陆" name="login" >
+        <p class="pull-left"><input type="checkbox" name="rempas">  记住密码</p>
+        <p class="pull-right">忘记密码</p>
+        <div class="block-edge"></div>
+        <div class="block-edge"></div>
+        <p class="pull-right">没有账号？<router-link to="/register" class="navbar-link">立即注册</router-link></p>
       </form>
     </div>
   </div>

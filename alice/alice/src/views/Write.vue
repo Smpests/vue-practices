@@ -1,51 +1,53 @@
 <style scoped>
   .container {
-    overflow-y: scroll;
+     //overflow-y: scroll;
     margin-top: 60px;
-  }
-  .headline{
-  font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  }
-  .atext{
-      font-size: 18px;
-      margin-left: 50px;
-      padding: 20px;
-  }
-  .pagestyle{
-      font-size: 15px;
-      margin-left: 30px;
-      padding: 20px;
+    width: 320px;
+    height: 560px;
+    border: 2px solid #eee;
   }
   input[type="submit"]{
-  margin-top: 25px;
-  margin-left: 120px;
-  height: 35px;
-  background: #357eb8;
-  color:#bcedff;
-  font-weight: bold;
-  font-size: 16px;
+    margin-top: 25px;
+    height: 35px;
+    background: #357eb8;
+    color:#bcedff;
+    font-weight: bold;
+    font-size: 16px;
   }
   input[type="submit"]:hover{
     background:#0e62a3;
     cursor: pointer;
     }
-  .list {
-    margin: 55px 20px 20px 20px;
+  h1 {
+  color: #FF6ECF;
+  font-size: 1.8em;
+  text-align: center;
+  }
+  textarea {
+    width: 100%;
+  }
+  .footer {
+      background-image: url('img/huocairen.jpg');
+      background-size: cover;
+      margin-left: 75px;
+      width: 128px;
+      height: 96px;
   }
 </style>
 
 <template>
-  <div class="container">
-    <p class="headline">标题</p>
-    <input class="atext" type="text">
-    <p class="headline">内容</p>
-    <div class="pagestyle">
-        <textarea name="page" cols="30" rows="10"></textarea>
-        <form action="./views/Write.vue" method="get">
-        <input type="submit" name="finish" value="发布" >
-        </form>
-    </div>
+  <div class= "container">
+    <form action="/views/Write.vue" class="form-group" method="get">
+      <div>
+        <h1>标题</h1>
+        <input class="form-control" autocomplete="off" name="title" type="text">
+      </div>
+      <div>
+        <h1>内容</h1> 
+        <textarea name="content" rows="10"></textarea>
+        <input autocomplete="off" type="submit" name="finish" class="form-control" value="发布" >
+      </div>
+    </form>
+    <div class="footer"></div>
   </div>
 </template>
