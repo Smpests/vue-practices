@@ -6,7 +6,8 @@
     height: 560px;
     background-image: url('img/666406.jpg');
     background-size: cover;
-    border-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 input[type="submit"]{
   margin-top: 25px;

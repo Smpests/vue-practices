@@ -6,7 +6,8 @@
     height: 560px;
     background-image: url('img/715495.jpg');
     background-size: cover;
-    border-radius: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 input[type="submit"]{
   margin-top: 25px;
@@ -49,7 +50,7 @@ h1 {
         <h1>Alice</h1>
         <div class="input-group">
           <span class="input-group-addon">账 号</span>
-          <input class="form-control" type="text" autocomplete="off">
+          <input class="form-control" type="text" autocomplete="off" placeholder="请输入手机号">
         </div>
         <div class="block-edge"></div>
         <div class="input-group">

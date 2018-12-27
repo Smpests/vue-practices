@@ -7,7 +7,7 @@
   }
   .wrapper {
     /* background-color: #3A4953; */
-    background-color: #fff;
+    background-color: #eee;
     flex: 1;
     position: fixed;
     z-index: 1;
@@ -17,6 +17,7 @@
     font-weight: weight;
     line-height: 60px;
     padding: 0 1em;
+    width: 320px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   }
   ul {
@@ -50,7 +51,7 @@
 </style>
 
 <template>
-  <div class="wrapper">
+  <div class="container wrapper">
     <ul>
       <li @click="changeItemStatus(0)">
         <router-link class="item-active" to="/">&#xeaf0;</router-link>

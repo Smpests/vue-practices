@@ -5,7 +5,8 @@
     width: 320px;
     height: 560px;
     border: 2px solid #eee;
-    border-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 </style>
 
