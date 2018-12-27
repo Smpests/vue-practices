@@ -6,6 +6,7 @@
     height: 560px;
     background-image: url('img/666406.jpg');
     background-size: cover;
+    border-radius: 15px;
   }
 input[type="submit"]{
   margin-top: 25px;
@@ -36,6 +37,9 @@ h1 {
 .container .input-container {
   margin-top: 30%;
 }
+.tips {
+  tex-aligin: center;
+}
 </style>
 
 <template>
@@ -57,7 +61,7 @@ h1 {
         <p class="pull-right">忘记密码</p>
         <div class="block-edge"></div>
         <div class="block-edge"></div>
-        <p class="pull-right">没有账号？<router-link to="/register" class="navbar-link">立即注册</router-link></p>
+        <p class="tips">没有账号？<router-link to="/register" class="navbar-link">立即注册</router-link></p>
       </form>
     </div>
   </div>

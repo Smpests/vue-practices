@@ -1,54 +1,21 @@
 <style scoped>
   .container {
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-top: 60px;
+    width: 320px;
+    height: 560px;
+    border: 2px solid #eee;
+    border-radius: 15px;
   }
-  .headline{
-  font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  }
-  .atext{
-      font-size: 18px;
-      margin-left: 50px;
-      padding: 20px;
-  }
-  .pagestyle{
-      font-size: 15px;
-      margin-left: 30px;
-      padding: 20px;
-  }
-  input[type="submit"]{
-  /* margin-top: 25px;
-  margin-left: 120px; */
-  height: 20px;
-  background: #2b9c3b;
-  color:#bcedff;
-  font-weight: bold;
-  font-size: 13px;
-  }
-  input[type="submit"]:hover{
-    background:#096568;
-    cursor: pointer;
-    }
-  .list {
-    margin: 0px 20px 20px 0px;
-  }
-  .bstyle{
-      font-size: 18px;
-      margin: 0;
-      padding: 10px;
-  }
-  .cstyle{
-      font-size: 15px;
-      margin: 0;
-      padding: 10px;
+  h1{
+    color: #FF6ECF;
+    font-size: 1.8em;
+    text-align: center;
   }
 </style>
-
 <template>
   <div class="container">
-    <p class="headline">消息</p>
+    <h1>消息</h1>
     <div class="pagestyle">
         <div class="list">
       <news-cell content='2' v-for="index in 20" :key="index"></news-cell>

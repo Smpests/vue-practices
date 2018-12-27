@@ -5,7 +5,7 @@
 }
 
   .newsCell-container {
-    background: white;
+    background: #eee;
     padding: 15px 15px 15px 15px;
     margin-top: 20px;
     border-radius: 8px;

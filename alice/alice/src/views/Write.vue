@@ -5,6 +5,7 @@
     width: 320px;
     height: 560px;
     border: 2px solid #eee;
+    border-radius: 15px;
   }
   input[type="submit"]{
     margin-top: 25px;

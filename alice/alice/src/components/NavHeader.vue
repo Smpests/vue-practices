@@ -1,7 +1,9 @@
 <style scoped>
   @font-face {
+    //font-family: navHeaderIconFont;
+    //src: url('//at.alicdn.com/t/font_952909_fni4mkv42n.ttf');
     font-family: navHeaderIconFont;
-    src: url('//at.alicdn.com/t/font_952909_fni4mkv42n.ttf')
+    src: url('//at.alicdn.com/t/font_952909_fni4mkv42n.ttf');
   }
   .wrapper {
     /* background-color: #3A4953; */
