@@ -56,21 +56,21 @@
 
 <template>
   <div class="homeCell-container">
-    <p class="titleP"> 北京信息科技大学计算机学院 </p>
-    <p class="contentP"> 计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多计算机学院人才多 </p>
+    <p class="titleP"> {{ nick_name }} </p>
+    <p class="contentP"> {{ content }}</p>
     <div class="bottom">
       <div class="bottom-views">
         <p class="bottom-views-span">&#xeac1;</p>
-        <p class="bottom-views-count">25</p>
+        <p class="bottom-views-count">{{ read_num }}</p>
       </div>
-      <p class="bottom-timeP">3 小时前</p>
+      <p class="bottom-timeP">{{  }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'homeCell',
+  name: 'homeCell'
   props: {
     content: {
       id: '',
