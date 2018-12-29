@@ -73,7 +73,9 @@ export default {
   mounted: function() {
     $('#register').click(function() {
       var uid  = $('#uid').val();
-      var pw = md5($('#pw').val().split('').reverse().join(''));
+      //var pw = md5($('#pw').val().split('').reverse().join(''));
+      var pw = $('#pw').val();
+      console.log('注册账号:', uid);
       console.log('注册密码:', pw);
       $.ajax({
         url: 'http://api.pjhubs.com/masuser/createmasuser',
@@ -91,7 +93,7 @@ export default {
         jsonpCallback: 'flightHandler',
         success: function(result) {
           if (result.msgCode == 666) {
-            alert('注册成功');
+            console.log(result.msg.masuser['uid'] + '注册成功');
           } else {
             alert(result.msg);
           }

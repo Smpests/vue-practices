@@ -78,8 +78,13 @@ export default {
   mounted: function() {
     $('#login').click(function() {
       var uid = $('#uid_log').val();
-      var pw = md5($('#pw_log').val().split('').reverse().join('') + new Date().getTime());
-      console.log('登陆密码:', pw);
+      var pw = $('#pw_log').val();
+      //var pw_md5 = md5($('#pw_log').val().split('').reverse().join(''));
+
+      //var pw_md5 = pw;
+      console.log('登陆账号:', uid);
+      console.log('登陆密码(加密前):', pw);
+      //console.log('登陆密码(加密后):', pw_md5);
       $.ajax({
         url: 'http://api.pjhubs.com/masuser/login',
         async: false,
@@ -97,9 +102,10 @@ export default {
         jsonpCallback: 'flightHandler',
         success: function(result) {
           if (result.msgCode == 666) {
-            alert('登陆成功');
+            console.log(result.msg.masuser['uid'] + '登陆成功');
+            window.location.href = 'localhost:8080/user';
           } else {
-            alert(result.msg);
+            console.log(result.msg + '登陆失败');
           }
         },
         error: function(result) {
