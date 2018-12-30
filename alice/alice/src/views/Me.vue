@@ -2,8 +2,9 @@
   .container {
     //overflow-y: scroll;
     margin-top: 60px;
-    width: 320px;
-    height: 560px;
+    //width: 320px;
+    //height: 560px;
+    height: 92.5%;
     background-image: url('img/666406.jpg');
     background-size: cover;
     border-bottom-left-radius: 15px;
@@ -42,7 +43,11 @@ h1 {
   margin-top: 30%;
 }
 .tips {
-  tex-aligin: center;
+  text-align: center;
+}
+.footer-tip {
+  dispaly:none;
+  color: red;
 }
 </style>
 
@@ -53,12 +58,12 @@ h1 {
         <h1>Alice</h1>
         <div class="input-group">
           <span class="input-group-addon">账 号</span>
-          <input name="uid" id="uid_log" class="form-control" type="text" autocomplete="off">
+          <input name="uid" id="uid_log" oninput="value=value.replace(/[^\d]/g,'')" class="form-control" type="text" autocomplete="off">
         </div>
         <div class="block-edge"></div>
         <div class="input-group">
           <span class="input-group-addon">密 码</span>
-          <input name="pw" id="pw_log" class="form-control" type="password" autocomplete="off">
+          <input name="pw" id="pw_log" class="form-control" type="password" maxlength="16" autocomplete="off">
         </div>
         <input type="button" id="login" class="form-control" value="登陆" name="login">
         <p class="pull-left"><input type="checkbox" name="rempas">  记住密码</p>
@@ -67,6 +72,9 @@ h1 {
         <div class="block-edge"></div>
         <p class="tips">没有账号？<router-link to="/register" class="navbar-link">立即注册</router-link></p>
       </div>
+    </div>
+    <div style="text-align:center;">
+      <span class="footer-tip"></span>
     </div>
   </div>
 </template>
@@ -89,10 +97,14 @@ export default {
         url: 'http://api.pjhubs.com/masuser/login',
         async: false,
         data: {
-          'phoneNumber': uid,
-          'uid': uid,
-          'nick_name': 'alice_' + uid,
-          'sign': pw,
+          //'phoneNumber': uid,
+          //'uid': uid,
+          //'nick_name': 'alice_' + uid,
+          //'sign': pw,
+          'phoneNumber': '18323135254',
+          'uid': '18323135254',
+          'nick_name': 'alice_' + '18323135254',
+          'sign': '18323135254',
           'timestamp': new Date().getTime()
         },
         type: 'get',
@@ -102,14 +114,20 @@ export default {
         jsonpCallback: 'flightHandler',
         success: function(result) {
           if (result.msgCode == 666) {
-            console.log(result.msg.masuser['uid'] + '登陆成功');
-            window.location.href = 'localhost:8080/user';
+            $('.footer-tip').text('登陆成功,获取中...');
+            $('.footer-tip').fadeIn();
+            $('#uid').attr('value', result.msg.masuser['uid']);
+            $('#user_nick_name').attr('value', 'alice_' + '18323135254');
+
+            console.log('alice_' + '18323135254');
           } else {
-            console.log(result.msg + '登陆失败');
+            $('.footer-tip').text('登陆失败' + result.msg);
+            $('.footer-tip').fadeIn();
+            $('.footer-tip').fadeOut(3000);
           }
         },
         error: function(result) {
-          alert('连接服务器失败!');
+          $('.footer-tip').text('连接服务器失败~');
         }
       });
     });

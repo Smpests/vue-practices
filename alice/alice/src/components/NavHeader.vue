@@ -17,7 +17,7 @@
     font-weight: weight;
     line-height: 60px;
     padding: 0 1em;
-    width: 320px;
+    //width: 320px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   }
   ul {

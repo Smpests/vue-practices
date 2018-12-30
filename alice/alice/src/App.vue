@@ -1,5 +1,16 @@
 <style>
+  html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
   body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background-color: rgb(240, 245, 246);
   }
   .app {
@@ -21,6 +32,9 @@
     border-radius: 8px;
     //cursor: none;
   }
+  .homeCell-container:hover {
+    background: #ddd;
+  }
   .homeCell-container p {
     font-weight: weight;
   }
@@ -30,6 +44,7 @@
     font-size: 18px;
   }
   .list .contentP {
+    word-wrap:break-word;
     font-weight: weight;
     font-size: 16px;
     line-height: 23px;
@@ -75,12 +90,32 @@
   .list input[type="submit"]:hover{
     background:#096568;
     cursor: pointer;
-    }
+  }
+  .detail-container {
+    position: absolute;
+    display: none;
+    z-index: 999;
+    overflow-y: auto;
+    margin-top: 60px;
+    height: 92.5%;
+    border: 2px solid #000;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+  }
+  .text-count {
+    color: red;
+    font-style: italic;
+  }
+  .comment-tip {
+    dispaly:none;
+    color: red;
+  }
 </style>
 <template>
   <div class="app">
     <nav-header></nav-header>
-    <router-view/>    
+    <router-view/>
   </div>
 </template>
 
