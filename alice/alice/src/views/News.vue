@@ -4,7 +4,8 @@
     margin-top: 60px;
     //width: 320px;
     //height: 560px;
-    height: 92.5%;
+    height: 100%;
+    width: 100%;
     border: 2px solid #eee;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;

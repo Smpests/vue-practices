@@ -32,9 +32,6 @@
     border-radius: 8px;
     //cursor: none;
   }
-  .homeCell-container:hover {
-    background: #ddd;
-  }
   .homeCell-container p {
     font-weight: weight;
   }
@@ -48,6 +45,9 @@
     font-weight: weight;
     font-size: 16px;
     line-height: 23px;
+  }
+  .list .contentP:hover {
+    background: #ddd;
   }
   .list .bottom {
     display: flex;
@@ -67,8 +67,18 @@
     color: palevioletred;
   }
   .list .bottom-views-count {
-    margin: 0;
+    margin-left: 6px;
+    padding-top: 2px;
     font-size: 14px;
+  }
+  #thumbs_up {
+    padding-right: 6px;
+    padding-left: 50px;
+    z-index: 100;
+  }
+  #thumbs_up:hover {
+    color: red;
+    cursor: pointer;
   }
   .list .bottom-timeP {
     flex: 1;
@@ -97,7 +107,8 @@
     z-index: 999;
     overflow-y: auto;
     margin-top: 60px;
-    height: 92.5%;
+    height: 93.5%;
+    width: 100%;
     border: 2px solid #000;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;

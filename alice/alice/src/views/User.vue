@@ -12,7 +12,7 @@
 				<h1 class="nick-name"></h1>
 				<p calss="phone"></p>
 			</div>
-		<div>
+		</div>
 		<div class="func">
 			<router-link to="/">My Blogs</router-link>
 			<router-link to="/">Favourite</router-link>
@@ -25,6 +25,7 @@
 import $ from 'jquery'
 
 export default {
+	name: 'user',
 	mounted: function() {
 		$(document).ready(function() {
 			console.log('user.vue ready to go');

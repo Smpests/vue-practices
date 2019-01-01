@@ -1,9 +1,10 @@
 <style scoped>
   .container {
     overflow-y: auto;
-    margin-top: 60px;
+    padding-top: 60px;
     //width: 320px;
-    height: 92.5%;
+    height: 100%;
+    width: 100%;
     border: 2px solid #eee;
     position: absolute;
     border-bottom-left-radius: 15px;
@@ -18,12 +19,14 @@
     padding:0 10px;
     margin-top: 10px;
     font-family: navHeaderIconFont;
-    font-size: 32px;
+    //font-size: 32px;
     text-align: center;
+    height: 50px;
   }
 
   #nav a {
     font-weight: weight;
+    font-size: 32px;
     color: #2c3e50;
     text-decoration: none;
   }
@@ -35,13 +38,18 @@
     display: none;
   }
   .tip {
-    margin-top: 5px;
+    margin-top: 0;
     height: 15px;
     text-align: center;
   }
   .tip-span {
     color: red;
     display: none;
+  }
+  .glyphicon {
+    margin: 15px 50px;
+    font-size: 20px;
+    color: #666;
   }
 </style>
 
@@ -51,8 +59,8 @@
       <div class="pull-left">
         <router-link id="blog" to="/">&#xeaf9;</router-link>
       </div>
-      <button id="first_page" class="btn btn-default">首页</button>
-      <button id="next_page" class="btn btn-default"><span id="current_page">1</span>下一页</button>
+      <span id="prev_page" class="glyphicon glyphicon-menu-left"></span>
+      <span id="next_page" class="glyphicon glyphicon-menu-right"><span id="current_page">1</span></span>
       <div class="pull-right">
         <router-link id="about" to="/about">&#xeb22;</router-link>
       </div>
@@ -78,16 +86,29 @@ export default {
           var current_page = $('#current_page').text();
           var query_page = (parseInt(current_page) + 1).toString();
           $('#current_page').text(query_page);
-          console.log('请求页面',query_page);
           query(query_page);
         });
         $('#blog').click(function() {
           query('1');
         });
-        $('#first_page').click(function() {
-          $('#current_page').text('1');
-          query('1');
+        $('#prev_page').click(function() {
+          var current_page = $('#current_page').text();
+          var query_page = (parseInt(current_page) - 1).toString();
+          if(query_page >= 1) {
+            $('#current_page').text(query_page);
+            query(query_page);
+          }
         });
+        function timestampToTime(timestamp) {
+          var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+          var Y = date.getFullYear() + '-';
+          var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+          var D = date.getDate() + ' ';
+          var h = (date.getHours() < 10) ? ('0' + date.getHours() + ':') : (date.getHours() + ':');
+          var m = (date.getMinutes() < 10) ? ('0' + date.getMinutes() + ':') : (date.getMinutes() + ':');
+          var s = (date.getSeconds() < 10) ? ('0' + date.getSeconds()) : (date.getSeconds());
+          return Y+M+D+h+m+s;
+        }
         function query_comments(uid, nick_name, blog_id, page) {
           $.ajax({
             url: 'http://api.pjhubs.com/comment/getComment',
@@ -104,14 +125,13 @@ export default {
             jsonp: 'callback',
             jsonpCallback: 'flightHandler',
             success: function(result) {
-              console.log(result);
-              console.log(blog_id);
-              console.log(uid);
+              console.log('query_info', [uid, nick_name, blog_id, page]);
+              $('#comment').attr('value', '');
               var comment_list = $('.comment-list');
               var comments = result.msg.comments;
               for (var i = 0;i < comments.length;i++) {
-                var nick_name = $('<div class="well" style="width: 100%;"><span class="pull-left"> From: ' + $('#user_nick_name').val() + '<span style="color: #66ccff;margin-left: 20px;">' + comments[i].comment_created_time + '</span></span></div>');
-                var comment = $('<p class="pull-left" style="margin-left: 15px;" id="' + comments[i]['comment_id'] + '"> ' + comments[i]['comment_content'] + '</p><hr>');
+                var nick_name = $('<div class="well" style="width: 100%;"><span class="pull-left" style="display: block;width: 100%;padding-left: -25px;"> From: ' + $('#user_nick_name').val() + '<span style="color: #66ccff;margin-left: 25px;">' + timestampToTime(comments[i].comment_created_time) + '</span></span></div>');
+                var comment = $('<p class="pull-left" style="margin-left: 15px;margin-top: 8px;" id="' + comments[i]['comment_id'] + '"> ' + comments[i]['comment_content'] + '</p><hr>');
                 comment.appendTo(nick_name);
                 nick_name.appendTo(comment_list);
               }
@@ -141,31 +161,73 @@ export default {
                 var blogs = result.msg.blogs;
                 var list = $('#page_list');
                 list.empty();
+                if (blogs.length < 10) {
+                  $('#current_page').text((parseInt(page) - 1).toString());
+                }
                 for (var i = 0;i < blogs.length;i++) {
-                  var container = $('<div class="homeCell-container" id="' + blogs[i].id + '"></div>');
-                  console.log(blogs[i].id);
+                  var object_id = blogs[i].id;
+                  //console.log('点赞数', blogs[i].like_num);
+                  var container = $('<div class="homeCell-container" id="' + object_id + '"></div>');
                   //container.addClass("homeCell-container");
                   var title = $('<h1 class="titleP"> ' + blogs[i].masuser['nick_name'] + '</h1>');
                   var content = $('<p class="contentP"> ' + blogs[i].content + '</p>');
                   var bottom_container = $('<div class="bottom"></div>');
                   var bottom_views = $('<div class="bottom-views"></div>');
-                  var icon = $('<p class="bottom-views-span">&#xeac1;</p>');
-                  var read_num = $('<p class="bottom-views-count" style="margin: 0;font-size: 14px;"> ' + blogs[i].read_num + '</p>');
-                  var created_time = $('<p class="bottom-timeP"> ' + blogs[i].created_time + '</p>');
+                  var icon = $('<span class="glyphicon glyphicon-check"></span>');
+                  var read_num = $('<span class="bottom-views-count"> ' + blogs[i].read_num + '</span>');
+                  var like_num = $('<span id="thumbs_up" class="glyphicon glyphicon-thumbs-up"></span><span> ' + '5' + '</span>');
+                  var created_time = $('<p class="bottom-timeP"> ' + timestampToTime(blogs[i].created_time) + '</p>');
                   icon.appendTo(bottom_views);
                   read_num.appendTo(bottom_views);
+                  like_num.appendTo(bottom_views);
                   bottom_views.appendTo(bottom_container);
                   created_time.appendTo(bottom_container);
                   title.appendTo(container);
                   content.appendTo(container);
                   bottom_container.appendTo(container);
                   container.appendTo(list);
-                  container.click(function() {
+                  like_num.click(function() {
+                    $.ajax({
+                      url: 'http://api.pjhubs.com/like',
+                      async: false,
+                      data: {
+                        'content_type': 'blog',
+                        'object_id': object_id,
+                        'uid': $('#uid').val(),
+                        'nick_name': $('#user_nick_name').val(),
+                        'is_like': 'true'
+                      },
+                      type: 'get',
+                      contentType: "application/json;charset=utf-8",
+                      dataType: 'jsonp',
+                      jsonp: 'callback',
+                      jsonpCallback: 'flightHandler',
+                      success: function(result) {
+                        console.log('点赞回执', result);
+                        if (result.msgCode == '666') {
+                          $('#' + result.msg.blog_id + ' #thumbs_up').next().text(result.msg.like_num);
+                        } else if ($('#uid').val() == ''){
+                          $('.tip-span').text('点赞失败, 请先登陆');
+                          $('.tip-span').fadeIn();
+                          $('.tip-span').fadeOut(3000);
+                        } else {
+                          $('.tip-span').text('点赞失败, 未知错误');
+                          $('.tip-span').fadeIn();
+                          $('.tip-span').fadeOut(3000);
+                        }
+                      },
+                      error: function(result) {
+                        console.log('连接服务器失败');
+                      }
+                    });
+                  });
+                  content.click(function() {
                     var uid = $('#uid').val();
-                    var blog_id = $(this).attr('id');
+                    var blog_id = $(this).parent().attr('id');
                     var nick_name = $('#user_nick_name').val();
                     console.log('fisrt ', nick_name);
                     if (uid == '') {
+                      $('.tip-spam').text('请登陆后查看详情');
                       $('.tip-span').fadeIn();
                       $('.tip-span').fadeOut(2000);
                     } else {
@@ -205,7 +267,6 @@ export default {
                           // 生成评论列表
                           var comment_list = $('<div class="comment-list"> 所有评论:<br></div>');
                           // 请求当前文章的评论
-                          console.log('second', nick_name);
                           query_comments(uid, nick_name, blog_id, '1');
                           //生成提交评论
                           var comment_submit = $('<button style="width: 100%;display: block;" class="btn btn-default">提交</button>');
@@ -233,24 +294,35 @@ export default {
                                 jsonpCallback: 'flightHandler',
                                 success: function(result) {
                                   console.log(result);
+                                  $('#comment').val('');
+                                  $('.comment-tip').text('评论成功');
+                                  $('.comment-tip').fadeIn();
+                                  $('.comment-tip').fadeOut(2000);
+                                  $('#refresh').click();
                                 },
                                 error: function(result) {
                                   console.log('连接服务器失败');
                                 }
                               });
-                              query_comments(uid, nick_name, blog_id, '1');
                             }
                           });
                           // tips
-                          var tip = $('<span class="comment-tip"></span>');
+                          var tip = $('<span class="comment-tip pull-left"></span>');
+                          var hidden_refresh_btn = $('<input id="refresh" type="button" hidden value="刷新">');
+                          hidden_refresh_btn.click(function() {
+                            $('.comment-list').empty();
+                            query_comments(uid, nick_name, blog_id, '1');
+                          });
                           return_button.appendTo(detail_container);
                           detail_content.appendTo(detail_container);
                           read_num.appendTo(detail_container);
                           comment.appendTo(detail_container);
+                          tip.appendTo(detail_container);
                           text_count.appendTo(detail_container);
                           comment_submit.appendTo(detail_container);
                           comment_list.appendTo(detail_container);
-                          tip.appendTo(detail_container);
+                          hidden_refresh_btn.appendTo(detail_container);
+                          //tip.appendTo(detail_container);
                           detail_container.appendTo($('.app'));
                           detail_container.fadeIn();
                         },
