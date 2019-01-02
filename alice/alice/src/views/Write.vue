@@ -5,7 +5,7 @@
     //width: 320px;
     height: 100%;
     width: 100%;
-    border: 2px solid #eee;
+    //border: 2px solid #eee;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
@@ -65,6 +65,7 @@
     <div style="text-align:center;">
       <span class="footer-tip"></span>
     </div>
+    <router-link to="/" hidden id="return_home"></router-link>
   </div>
 </template>
 <script>
@@ -103,8 +104,8 @@ export default {
                 if (result.msgCode == 666) {
                     $('.footer-tip').text('发布成功, 正在前往主页...');
                     setTimeout(function() {
-                window.location.href = 'http://10.18.5.18:8080/#/'
-              }, 2000);
+                      document.getElementById('return_home').click();
+                    }, 2000);
                 } else {
                   $('.footer-tip').text('发布失败');
                 }

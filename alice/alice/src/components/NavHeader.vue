@@ -29,7 +29,7 @@
   }
   ul li {
     flex: 1;
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
     font-weight: weight;
     font-family: navHeaderIconFont;
@@ -46,7 +46,7 @@
     color: gray;
   }
   .item-active:active {
-    background-color:rgba(0, 0, 0, 0.1);
+    //background-color:rgba(0, 0, 0, 0.1);
   }
 </style>
 
@@ -54,7 +54,7 @@
   <div class="container wrapper">
     <ul>
       <li @click="changeItemStatus(0)">
-        <router-link class="item-active" to="/">&#xeaf0;</router-link>
+        <router-link class="item-active" to="/"><span class="glyphicon glyphicon-home"></span></router-link>
         <!-- <span>&#xeaf0;</span>
         <span class="item-active"
             v-show="checkStatus[0]"
@@ -63,7 +63,7 @@
         </span> -->
       </li>
       <li @click="changeItemStatus(1)">
-        <router-link class="item-active" to="/write">&#xeaf8;</router-link>
+        <router-link class="item-active" to="/write"><span class="glyphicon glyphicon-leaf"></span></router-link>
         <!-- <span>&#xeaf8;</span>
         <span class="item-active"
             v-show="checkStatus[1]"
@@ -72,7 +72,7 @@
         </span> -->
       </li>
       <li @click="changeItemStatus(2)">
-        <router-link class="item-active" to="/news">&#xeb43;</router-link>
+        <router-link class="item-active" to="/news"><span class="glyphicon glyphicon-bell"></span></router-link>
         <!-- <span>&#xeb43;</span>
         <span class="item-active"
             v-show="checkStatus[2]"
@@ -81,7 +81,7 @@
         </span> -->
       </li>
       <li @click="changeItemStatus(3)">
-        <router-link class="item-active" to="me">&#xeb24;</router-link>
+        <router-link class="item-active" to="me"><span class="glyphicon glyphicon-user"></span></router-link>
         <!-- <span>&#xeb24;</span>
         <span class="item-active"
             v-show="checkStatus[3]"

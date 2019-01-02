@@ -39,7 +39,7 @@ h1 {
   position: absolute;
 }
 .container .input-container {
-  padding-top: 40%;
+  padding-top: 30%;
   width: 100%;
   height: 100%;
 }

@@ -5,7 +5,7 @@
     //width: 320px;
     height: 100%;
     width: 100%;
-    border: 2px solid #eee;
+    //border: 2px solid #eee;
     position: absolute;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -26,9 +26,13 @@
 
   #nav a {
     font-weight: weight;
-    font-size: 32px;
+    font-size: 26px;
     color: #2c3e50;
     text-decoration: none;
+  }
+
+  #nav a span {
+    margin-top: 12px;
   }
 
   #nav a.router-link-exact-active {
@@ -46,7 +50,7 @@
     color: red;
     display: none;
   }
-  .glyphicon {
+  #nav > span.glyphicon {
     margin: 15px 50px;
     font-size: 20px;
     color: #666;
@@ -57,12 +61,12 @@
   <div class="container" id="con">
     <div id="nav">
       <div class="pull-left">
-        <router-link id="blog" to="/">&#xeaf9;</router-link>
+        <router-link id="blog" to="/"><span class="glyphicon glyphicon-th-list"></span></router-link>
       </div>
       <span id="prev_page" class="glyphicon glyphicon-menu-left"></span>
       <span id="next_page" class="glyphicon glyphicon-menu-right"><span id="current_page">1</span></span>
       <div class="pull-right">
-        <router-link id="about" to="/about">&#xeb22;</router-link>
+        <router-link id="about" to="/about"><span class="glyphicon glyphicon-info-sign"></span></router-link>
       </div>
     </div>
     <div class="tip">
@@ -130,7 +134,7 @@ export default {
               var comment_list = $('.comment-list');
               var comments = result.msg.comments;
               for (var i = 0;i < comments.length;i++) {
-                var nick_name = $('<div class="well" style="width: 100%;"><span class="pull-left" style="display: block;width: 100%;padding-left: -25px;"> From: ' + $('#user_nick_name').val() + '<span style="color: #66ccff;margin-left: 25px;">' + timestampToTime(comments[i].comment_created_time) + '</span></span></div>');
+                var nick_name = $('<div class="well" style="width: 100%;"><span class="pull-left" style="display: block;width: 100%;padding-left: -25px;"> From: ' + 'alice_' +comments[i].masuser['uid'].slice(-4) + '<span style="color: #66ccff;margin-left: 25px;">' + timestampToTime(comments[i].comment_created_time) + '</span></span></div>');
                 var comment = $('<p class="pull-left" style="margin-left: 15px;margin-top: 8px;" id="' + comments[i]['comment_id'] + '"> ' + comments[i]['comment_content'] + '</p><hr>');
                 comment.appendTo(nick_name);
                 nick_name.appendTo(comment_list);
@@ -169,7 +173,7 @@ export default {
                   //console.log('点赞数', blogs[i].like_num);
                   var container = $('<div class="homeCell-container" id="' + object_id + '"></div>');
                   //container.addClass("homeCell-container");
-                  var title = $('<h1 class="titleP"> ' + blogs[i].masuser['nick_name'] + '</h1>');
+                  var title = $('<h1 class="titleP"> ' + 'alice_' + blogs[i].masuser['uid'].slice(-4) + '</h1>');
                   var content = $('<p class="contentP"> ' + blogs[i].content + '</p>');
                   var bottom_container = $('<div class="bottom"></div>');
                   var bottom_views = $('<div class="bottom-views"></div>');

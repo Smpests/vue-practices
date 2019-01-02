@@ -4,7 +4,7 @@
     margin-top: 60px;
     width: 320px;
     height: 560px;
-    border: 2px solid #eee;
+    //border: 2px solid #eee;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }

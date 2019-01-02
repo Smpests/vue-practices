@@ -39,6 +39,7 @@
     margin: 0;
     font-weight: bold;
     font-size: 18px;
+    padding-bottom: 5px;
   }
   .list .contentP {
     word-wrap:break-word;
@@ -109,7 +110,7 @@
     margin-top: 60px;
     height: 93.5%;
     width: 100%;
-    border: 2px solid #000;
+    //border: 2px solid #000;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     text-align: center;

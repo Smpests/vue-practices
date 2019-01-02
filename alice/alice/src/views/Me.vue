@@ -9,7 +9,7 @@
     background-image: url('img/666406.jpg');
     background-size: cover;
     position: absolute;
-    border: 3px black solid;
+    //border: 3px black solid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
@@ -45,7 +45,7 @@ input[type="password"] {
 .container .input-container {
   height: 100%;
   width: 100%;
-  padding-top: 40%;
+  padding-top: 30%;
 }
 .tips {
   text-align: center;
@@ -172,6 +172,7 @@ hr {
           <router-link to="/" id="to_my_blog" hidden></router-link>
           <router-link to="/" id="to_favourite" hidden></router-link>
           <router-link to="/" id="to_edit_info" hidden></router-link>
+          <router-link to="/" id="to_logout" hidden></router-link>
         </ul>
       </div>
     </div>
@@ -203,7 +204,7 @@ export default {
       $('#logout').click(function() {
         $('#uid').attr('value', '');
         $('#user_nick_name').attr('value', '');
-        window.location.reload();
+        document.getElementById('to_logout').click();
       });
       $('#login').click(function() {
       var uid = $('#uid_log').val();
@@ -211,8 +212,6 @@ export default {
       //var pw_md5 = md5($('#pw_log').val().split('').reverse().join(''));
 
       //var pw_md5 = pw;
-      console.log('登陆账号:', uid);
-      console.log('登陆密码(加密前):', pw);
       //console.log('登陆密码(加密后):', pw_md5);
       $.ajax({
         url: 'http://api.pjhubs.com/masuser/login',
@@ -241,10 +240,10 @@ export default {
             $('.footer-tip').fadeOut(3000);
             $('#uid').attr('value', result.msg.masuser['uid']);
             //admin -> result.msg.masuser['nick_name']
-            $('#user_nick_name').attr('value', result.msg.masuser['nick_name']);
+            $('#user_nick_name').attr('value', 'alice_' + result.msg.masuser['uid'].slice(-4));
             $('.input-container').toggle();
             $('.container').css('background-image', 'url("")');
-            $('.nick-name').text(result.msg.masuser['nick_name']);
+            $('.nick-name').text($('#user_nick_name').val());
             $('.user-id').text(result.msg.masuser['uid']);
             $('.user-detail-container').toggle();
           } else {
