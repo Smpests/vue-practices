@@ -58,7 +58,9 @@ input[type="password"] {
   z-index: 999;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   display: none;
+  position: absolute;
   //background-color: #eee;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -150,7 +152,7 @@ hr {
       <h1>个人信息</h1>
       <div class="person-msg">
         <div class="thumbnail col-xs-5 col-sm-3 col-md-1">
-          <img src="@/views/img/head.png" alt="head">
+          <img src="@/views/img/133336.gif" alt="head">
         </div>
         <div class="msg col-xs-7 col-sm-9 col-md-11">
           <ul>
@@ -199,7 +201,46 @@ export default {
         document.getElementById('to_edit_info').click();
       });
       $('#my_blog').click(function() {
-        document.getElementById('to_my_blog').click();
+        //document.getElementById('to_my_blog').click();
+        $.ajax({
+          url: 'http://api.pjhubs.com/blog/userBlogs',
+          async: false,
+          data: {
+            'page': '1',
+            'uid': $('#uid').val(),
+            'nick_name': $('#user_nick_name').val()
+          },
+          type: 'get',
+          contentType: "application/json;charset=utf-8",
+          dataType: 'jsonp',
+          jsonp: 'callback',
+          jsonpCallback: 'flightHandler',
+          success: function(result) {
+            console.log('my blogs', result);
+            if (result.msgCode == '666') {
+
+              var blogs = result.msg.blogs;
+              var container = $('.container');
+              var my_blogs_container = $('<div class="user-blogs-container"></div>');
+              var return_button = $('<button class="btn btn-default pull-left" style="width: 100%;">返回</button>');
+              return_button.click(function() {
+                $('.user-blogs-container').fadeOut();
+                $('.user-blogs-container').remove();
+              });
+              return_button.appendTo(my_blogs_container);
+              for (var i = 0;i < blogs.length;i++) {
+                console.log('get in');
+                var blog = $('<p>' + (i + 1) + ':' + blogs[i].content + '</p>');
+                blog.appendTo(my_blogs_container);
+              }
+              my_blogs_container.appendTo(container);
+              my_blogs_container.fadeIn();
+            }
+          },
+          error: function(result) {
+            console.log('连接服务器失败');
+          }
+        });
       });
       $('#logout').click(function() {
         $('#uid').attr('value', '');

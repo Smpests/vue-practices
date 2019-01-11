@@ -115,6 +115,19 @@
     border-bottom-right-radius: 15px;
     text-align: center;
   }
+  .user-blogs-container {
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    //overflow-y: auto;
+    margin-top: 0;
+    height: 93.5%;
+    width: 100%;
+    background-color: #eee;
+    //border: 2px solid #000;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
   .text-count {
     color: red;
     font-style: italic;
@@ -138,6 +151,6 @@ import 'normalize.css'
 export default {
   components: {
     navHeader: navHeader
-  },
+  }
 }
 </script>

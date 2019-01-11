@@ -157,7 +157,7 @@ export default {
                 }
               });
               setTimeout(function() {
-                window.location.href = 'http://192.168.109.1:8080/#/me'
+                window.location.href = 'http://10.18.5.2:8080/#/me'
               }, 3000);
             } else {
               $('.footer-tip').text('注册失败' + result.msg);
